@@ -159,7 +159,7 @@ public class CreateView extends JPanel implements ActionListener {
 		if(source.equals(quit)) {
 			manager.switchTo(ATM.LOGIN_VIEW);
 		}
-		else if (source.equals(submitButton)) {
+		else if (source.equals(submit)) {
 			String dob = "";
 			switch (String.valueOf(day.getSelectedItem())) {
 			case "January":

@@ -159,19 +159,51 @@ public class CreateView extends JPanel implements ActionListener {
 		if(source.equals(quit)) {
 			manager.switchTo(ATM.LOGIN_VIEW);
 		}
-		if(source.equals(submit)) { 
-			int dob = 
-			long phonenumber = Long.parseLong(String.valueOf(phone.getText().substring(1, 4) + ))
-			User user = new User(Integer.parseInt(String.valueOf(pin)), dob, phonenumber , firstname.getText(), lastname.getText(), street.getText(), city.getText(),(String) state.getSelectedItem(), zip.getText());
-			
+		else if (source.equals(submitButton)) {
+			String dob = "";
+			switch (String.valueOf(day.getSelectedItem())) {
+			case "January":
+				dob = "01";
+				break;
+			case "February":
+				dob = "02";
+				break;
+			case "March":
+				dob = "03";
+				break;
+			case "April":
+				dob = "04";
+				break;
+			case "May":
+				dob = "05";
+				break;
+			case "June":
+				dob = "06";
+				break;
+			case "July":
+				dob = "07";
+				break;
+			case "August":
+				dob = "08";
+				break;
+			case "September":
+				dob = "09";
+				break;
+			case "October":
+				dob = "10";
+				break;
+			case "November":
+				dob = "11";
+				break;
+			case "December":
+				dob = "12";
+				break;
+			}
+			dob += String.valueOf(day.getSelectedItem()) + String.valueOf(year.getText());
+			Long phone1 = Long.parseLong(String.valueOf(phone.getText().substring(1, 4) + phone.getText().substring(6, 9) + phone.getText().substring(10, 14)));
+			User user = new User(Integer.parseInt(String.valueOf(pin)), Integer.parseInt(dob), phone1, firstname.getText(), lastname.getText(), street.getText(), city.getText(), String.valueOf(state.getSelectedItem()), zip.getText());
+			manager.CreateAccount(user);
 			manager.switchTo(ATM.HOME_VIEW);
 		}
-		// TODO
-		//
-		// this is where you'll setup your action listener, which is responsible for
-		// responding to actions the user might take in this view (an action can be a
-		// user clicking a button, typing in a textfield, etc.).
-		//
-		// feel free to use my action listener in LoginView.java as an example.
 	}
 }
